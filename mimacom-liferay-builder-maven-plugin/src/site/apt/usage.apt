@@ -1,0 +1,103 @@
+Usage
+
+    A brief description how to use this plugin to build a liferay enviroment.
+    
+    All following examples suppose that the following is defined in a parent {{{./example/pom.xml}pom.xml}} of the project:
+
+---
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.mimacom.maven.plugins</groupId>
+                    <artifactId>mimacom-liferay-builder-maven-plugin</artifactId>
+                    <version>1.5.8-SNAPSHOT</version>
+                    <extensions>true</extensions>
+                    <configuration>
+                        <serverDirectory>/projects/liferay/apache-tomcat-6.0.32</serverDirectory>
+                        <serverType>tomcat</serverType>
+                    </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.mimacom.commons.liferay</groupId>
+                            <artifactId>liferay-adapter-6.2.0-ce-ga1</artifactId>
+                            <version>1.1.10-SNAPSHOT</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+            </plugins>
+            ...
+        </pluginManagement>
+        ...
+    </build>
+---
+	
+	This means we are using liferay version 6.2.0-ce-ga1 and a tomcat that is located in /projects/liferay/apache-tomcat-6.0.32.
+    
+createPortal
+
+	This goal generates a .war file consisting of a liferay portal.
+	This is done by taking a default liferay.war and applying the modifications defined by the project.
+	A typical configuration would be like this: (for all configuration possibilities see {{{./createPortal-mojo.html}here}})
+    
+---
+<project>
+    ...
+    <packaging>liferayPortal</packaging>
+    ... 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.edorasframework.tools.maven</groupId>
+                <artifactId>org.edorasframework.tools.maven.liferay</artifactId>
+                <configuration>
+                </configuration>
+            </plugin>
+            ...
+        </plugins>
+        ...
+    </build>
+    ...
+</project>
+---
+
+	That's what happens here in more detail:
+	
+	* Copy and filter the contents of src/main/config to target/config
+	
+	* Retrieve com.liferay.portal:portal-web-with-dependencies:6.0.5.war from a repository
+	
+	* Unpack it into target/exploded
+	
+	* Copy the files from target/$\{build.finalName\} to target/exploded. This means that the classes from src/main/java and the resources from src/main/resources will end up in the resulting war file.
+	
+	* Resolve any maven dependencies of the project and copy them into target/exploded/WEB-INF/lib
+	
+	* Move the libraries defined by the \<moveLibsToCommon\> configuration from target/exploded/WEB-INF/lib into target/commonLib
+	
+	* Create a war file from the contents of target/exploded
+	
+	* When {{{updateResources-mojo.html}updateResources}} is called the resources are directly copied into the exploded target, defined by the \<installationDirectory\> configuration.
+	
+	Three artifacts are resulting from these steps:
+	
+	* A war file in target. This is the portal itself. It is ready to be deployed to an application server.
+	
+	* Common libraries in target/commonLib. In the application server, these libs must be accessible to the portal and all portlets through a common class loader.
+	
+	* A set of configuration files in target/config. In the application server, these files must be accessible to the portal through class loading or via a '-Dexternal-properties=...' setting in the JVM.
+	
+	If the \<localCopy\> configuration attribute is set to true, these three artifacts are copied to the configured directories (\<deployDirectory\>, \<commonLibsDirectory\>, \<configDirectory\>). And the portal is ready to run.
+	
+updatePortal
+
+	A typical configuration would be like this: (for all configuration possibilities see {{{./updatePortal-mojo.html}here}})
+
+createWar
+
+	A typical configuration would be like this: (for all configuration possibilities see {{{./createWar-mojo.html}here}})
+
+updateResources
+
+	A typical configuration would be like this: (for all configuration possibilities see {{{./updateResources-mojo.html}here}})
+ 

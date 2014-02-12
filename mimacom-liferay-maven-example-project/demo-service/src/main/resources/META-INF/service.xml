@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.1.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_1_0.dtd">
+
+<service-builder package-path="org.mimacom.liferay.demo">
+	<namespace>MimacomServiceDemo</namespace>
+	<entity name="MimacomDemoObject" local-service="true" remote-service="true">
+		<!-- PK fields -->
+		<column name="ID" type="long" primary="true"/>
+		<!-- Other fields -->
+		<column name="USERID" type="long" accessor="true"/>
+		<column name="SCREENNAME" type="String" />
+		<column name="ACTION" type="String" />
+		<column name="MESSAGE" type="String" />
+		<column name="CREATEDATE" type="Date" />
+	</entity>
+</service-builder>

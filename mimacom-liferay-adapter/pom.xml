@@ -1,0 +1,137 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.mimacom.commons.liferay</groupId>
+	<artifactId>mimacom-liferay-adapter-parent</artifactId>
+	<version>1.1.10-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>${project.artifactId}</name>
+
+	<!-- must be overwritten in child modules -->
+	<properties>
+		<liferay-version>6.2.0-ce-ga1</liferay-version>
+        <qdox-version>1.12</qdox-version>
+	</properties>
+
+	<modules>
+		<!-- <module>mimacom-liferay-adapter-5.1.2</module> 
+		<module>mimacom-liferay-adapter-5.2.3</module>
+		<module>mimacom-liferay-adapter-5.2.6</module>
+		<module>mimacom-liferay-adapter-5.2.8</module>
+		<module>mimacom-liferay-adapter-5.2.9</module>
+		<module>mimacom-liferay-adapter-6.0.2</module>
+		<module>mimacom-liferay-adapter-6.0.3</module>
+		<module>mimacom-liferay-adapter-6.0.4</module>
+		<module>mimacom-liferay-adapter-6.0.5</module>
+		<module>mimacom-liferay-adapter-6.0.6</module>
+		<module>mimacom-liferay-adapter-6.0.10</module>
+		<module>mimacom-liferay-adapter-6.0.11</module>
+		<module>mimacom-liferay-adapter-6.0.12</module>
+		<module>mimacom-liferay-adapter-6.1.10</module>
+		<module>mimacom-liferay-adapter-6.1.20</module>
+        <module>mimacom-liferay-adapter-6.1.2-ce-ga3</module>
+        <module>mimacom-liferay-adapter-6.1.30</module>
+        <module>mimacom-liferay-adapter-6.2.10</module>-->
+        <module>mimacom-liferay-adapter-6.2.0-ce-ga1</module>
+	</modules>
+
+	<build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.4.1</version>
+                <configuration>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <preparationGoals>clean install</preparationGoals>
+                    <updateBranchVersions>true</updateBranchVersions>
+                    <updateVersionsToSnapshot>true</updateVersionsToSnapshot>
+                    <updateWorkingCopyVersions>true</updateWorkingCopyVersions>
+                    <checkModificationExcludes>
+                        <checkModificationExclude>mimacom-liferay-adapter-5.1.2.iml</checkModificationExclude>
+                        <checkModificationExclude>mimacom-liferay-adapter-5.2.3.iml</checkModificationExclude>
+                        <checkModificationExclude>mimacom-liferay-adapter-5.2.6.iml</checkModificationExclude>
+                        <checkModificationExclude>mimacom-liferay-adapter-5.2.8.iml</checkModificationExclude>
+                        <checkModificationExclude>mimacom-liferay-adapter-5.2.9.iml</checkModificationExclude>
+                        <checkModificationExclude>mimacom-liferay-adapter-6.0.2.iml</checkModificationExclude>
+                        <checkModificationExclude>mimacom-liferay-adapter-6.0.3.iml</checkModificationExclude>
+                        <checkModificationExclude>mimacom-liferay-adapter-6.0.4.iml</checkModificationExclude>
+                        <checkModificationExclude>mimacom-liferay-adapter-6.0.5.iml</checkModificationExclude>
+                        <checkModificationExclude>mimacom-liferay-adapter-6.0.6.iml</checkModificationExclude>
+                        <checkModificationExclude>mimacom-liferay-adapter-6.0.10.iml</checkModificationExclude>
+                        <checkModificationExclude>mimacom-liferay-adapter-6.0.11.iml</checkModificationExclude>
+                        <checkModificationExclude>mimacom-liferay-adapter-6.0.12.iml</checkModificationExclude>
+                        <checkModificationExclude>mimacom-liferay-adapter-6.1.10.iml</checkModificationExclude>
+                        <checkModificationExclude>mimacom-liferay-adapter-6.1.20.iml</checkModificationExclude>
+                        <checkModificationExclude>mimacom-liferay-adapter-6.1.30.iml</checkModificationExclude>
+                        <checkModificationExclude>mimacom-liferay-adapter-6.1.2-ce-ga3.iml</checkModificationExclude>
+                        <checkModificationExclude>mimacom-liferay-adapter-6.2.10.iml</checkModificationExclude>
+                        <checkModificationExclude>mimacom-liferay-adapter-6.2.0-ce-ga1.iml</checkModificationExclude>
+                    </checkModificationExcludes>
+                </configuration>
+            </plugin>
+        </plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.mimacom.commons.liferay</groupId>
+			<artifactId>mimacom-liferay-adapter-api</artifactId>
+			<version>1.1.1-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.liferay.portal</groupId>
+			<artifactId>portal-impl</artifactId>
+			<version>${liferay-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.liferay.portal</groupId>
+			<artifactId>portal-service</artifactId>
+			<version>${liferay-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.liferay.portal</groupId>
+			<artifactId>util-java</artifactId>
+			<version>${liferay-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.liferay.portal.dependency</groupId>
+			<artifactId>all</artifactId>
+			<version>${liferay-version}</version>
+			<type>pom</type>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.4</version>
+		</dependency>
+
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>2.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.portlet</groupId>
+            <artifactId>portlet-api</artifactId>
+            <version>2.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.thoughtworks.qdox</groupId>
+            <artifactId>qdox</artifactId>
+            <version>${qdox-version}</version>
+        </dependency>
+
+        <dependency>        	
+            <groupId>jalopy</groupId>
+            <artifactId>jalopy</artifactId>
+            <version>1.5rc3</version>
+        </dependency>
+	</dependencies>
+</project>

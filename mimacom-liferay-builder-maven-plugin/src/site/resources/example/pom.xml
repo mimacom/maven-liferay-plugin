@@ -1,0 +1,41 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>group</groupId>
+	<artifactId>parent</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<packaging>pom</packaging>
+
+	<properties>
+		<liferay-version>6.2.0-ce-ga1</liferay-version>
+        <liferayTomcatBundleDirectory>c:\development\liferay-portal-6.2.0-ce-ga1\tomcat-7.0.42</liferayTomcatBundleDirectory>
+	</properties>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.mimacom.maven.plugins</groupId>
+					<artifactId>mimacom-liferay-builder-maven-plugin</artifactId>
+					<version>1.5.8-SNAPSHOT</version>
+					<extensions>true</extensions>
+					<configuration>
+						<serverDirectory>${liferayTomcatBundleDirectory}</serverDirectory>
+						<serverType>tomcat</serverType>
+					</configuration>
+					<dependencies>
+						<dependency>
+							<groupId>org.mimacom.commons.liferay</groupId>
+							<artifactId>mimacom-liferay-adapter-${liferay-version}</artifactId>
+							<version>1.1.10-SNAPSHOT</version>
+						</dependency>
+					</dependencies>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+</project>

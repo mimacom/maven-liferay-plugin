@@ -1,0 +1,29 @@
+mimacom Liferay builder maven plugin
+
+	The mimacom Liferay builder maven plugin is used to build and deploy the liferay portal, themes, layouts, hooks, portlets and the service builder using maven.
+	Follow these steps to start with a running liferay portal.
+
+	* Download a tomcat ({{{http://tomcat.apache.org/download-60.cgi}Version 6}} or {{{http://tomcat.apache.org/download-70.cgi}Version 7}})
+	
+	* Copy it into a folder e.g. /projects/liferay
+
+	* Append following paths to common.loader property in catalina.properties:
+
+---
+${catalina.home}/lib/liferay/*.jar,${catalina.home}/../config
+---
+	
+	* Create a new parent project with this {{{./example/pom.xml}pom.xml}} (take care that the <serverDirectory> configuration matches the tomcat folder)
+	
+	* execute mvn install on this project
+	
+	* Create a new portal project with this {{{./example/portal/pom.xml}pom.xml}}
+
+	* execute mvn install on this project
+	
+	* start tomcat and go to {{http://localhost:8080/portal}}
+	
+	
+	When you have a running liferay, you can start developping {{{./artifact-portlet.html}Portlets}}, {{{./artifact-layout.html}Layouts}}, {{{./artifact-theme.html}Themes}}, {{{./artifact-hook.html}Hooks}} and {{{./artifact-serviceBuilder.html}Services}}.
+	
+	Enjoy!

@@ -1,0 +1,46 @@
+Portal
+
+* Configuration
+
+	Using this parent {{{./example/pom.xml}pom.xml}}
+
+---
+<project>
+    <parent>
+        <groupId>group</groupId>
+        <artifactId>parent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    ...
+    <packaging>liferayPortal</packaging>
+    ... 
+    <build>
+        <finalName>ROOT</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.mimacom.maven.plugins</groupId>  
+                <artifactId>mimacom-liferay-builder-maven-plugin</artifactId>
+                <configuration>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+---
+
+	
+
+* Directory layout
+  
+---
+    +- src/
+       +- main/
+          +- java/          // default java src directory
+          +- resources/     // default resources directory
+          +- webapp/        // portal content directory
+          +- config/        // portal config dir
+---
+
+    * The files contained within the webapp directory are all used for the portal war file. The webapp root dir will be the root in the portal war. All files to be added to the portal war may be paced into this directory.
+    
+    * The config directory is used to store files that have to be put into the liferay config directory such as the portal-ext.properties file.

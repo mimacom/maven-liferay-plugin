@@ -1,0 +1,72 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>mimacom-liferay-maven-example-project</artifactId>
+		<groupId>org.mimacom</groupId>
+		<version>0.0.2-SNAPSHOT</version>
+		<relativePath>..</relativePath>
+	</parent>
+	<artifactId>demo-hook</artifactId>
+	<packaging>liferayPortlet</packaging>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.mimacom.maven.plugins</groupId>
+				<artifactId>mimacom-liferay-builder-maven-plugin</artifactId>
+				<configuration>
+					<type>hook</type>
+					<serverType>tomcat</serverType>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>com.liferay.portal</groupId>
+			<artifactId>portal-service</artifactId>
+			<version>${liferay-version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.liferay.portal</groupId>
+			<artifactId>util-java</artifactId>
+			<version>${liferay-version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>javax.portlet</groupId>
+			<artifactId>portlet-api</artifactId>
+			<scope>provided</scope>
+			<version>2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.liferay.portal.dependency</groupId>
+			<artifactId>struts</artifactId>
+			<version>${liferay-version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mimacom</groupId>
+			<artifactId>demo-service-api</artifactId>
+		</dependency>
+
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <scope>provided</scope>
+            <version>1.4.1</version>
+        </dependency>
+    </dependencies>
+</project>

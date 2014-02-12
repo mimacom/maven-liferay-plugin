@@ -1,0 +1,30 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>group</groupId>
+		<artifactId>parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>portlet</artifactId>
+	<packaging>liferayPortlet</packaging>
+
+	<dependencies>
+	</dependencies>
+
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.mimacom.maven.plugins</groupId>
+				<artifactId>mimacom-liferay-builder-maven-plugin</artifactId>
+				<configuration>
+					<type>portlet</type>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

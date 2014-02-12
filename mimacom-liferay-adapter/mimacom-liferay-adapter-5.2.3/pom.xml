@@ -1,0 +1,26 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<groupId>org.mimacom.commons.liferay</groupId>
+		<artifactId>mimacom-liferay-adapter-parent</artifactId>
+		<version>1.1.10-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>mimacom-liferay-adapter-5.2.3</artifactId>
+	<name>${project.artifactId}</name>
+
+	<properties>
+		<liferay-version>5.2.3</liferay-version>
+        <qdox-version>1.7-liferay</qdox-version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.liferay.portal</groupId>
+			<artifactId>portal-kernel</artifactId>
+			<version>${liferay-version}</version>
+		</dependency>
+	</dependencies>
+
+</project>

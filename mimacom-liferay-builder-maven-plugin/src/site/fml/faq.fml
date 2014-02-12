@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faqs id="FAQ" title="Frequently Asked Questions">
+	<part id="General">
+		<faq id="display-name">
+			<question>How can I change the &lt;display-name&gt; element in
+				web.xml?</question>
+			<answer>
+				<p>
+					Liferay changes the &lt;display-name&gt; element in web.xml to
+					some default value.
+					To set this value explicitly use the
+					'recommended-deployment-context' property in
+					src/main/webapp/WEB-INF/liferay-plugin-package.properties.
+				</p>
+			</answer>
+		</faq>
+		<faq id="manifest">
+			<question>How can I add entries to META-INF/MANIFEST.MF?</question>
+			<answer>
+				<p>
+					<ul>
+						<li>You can put the complete MANIFEST.MF into
+							src/main/webapp/META-INF</li>
+						<li>
+							You can add it to the configuration of the war plugin:
+							<pre>
+&lt;build&gt;
+  &lt;plugins&gt;
+    &lt;plugin&gt;
+      &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+      &lt;artifactId&gt;maven-war-plugin&lt;/artifactId&gt;
+      &lt;configuration&gt;
+        &lt;archive&gt;
+          &lt;manifestEntries&gt;
+            &lt;Implementation-Version&gt;${project.version}&lt;/Implementation-Version&gt;
+          &lt;/manifestEntries&gt;
+        &lt;/archive&gt;
+      &lt;/configuration&gt;
+    &lt;/plugin&gt;
+  &lt;/plugins&gt;
+&lt;/build&gt;
+							</pre>
+						</li>
+					</ul>
+				</p>
+			</answer>
+		</faq>
+		<faq id="eclipse-hotcode">
+			<question>How do I enable hot code replacement for html files in eclipse?</question>
+			<answer>
+				<p>
+					To achieve that html file is automatically updated in a running liferay when you save it in eclipse, the following steps have to be done:
+					<ul>
+						<li>The antiResourceLocking attribute of the Context tag in META-INF/context.xml must NOT be true. This is a tomcat configuration file, if you don't know what this means, it's probably ok and you don't have to do anything</li>
+						<li>In eclipse, choose the properties of the portlet project, go to maven->Lifecycle mapping. In the goals to invoke when resource changes (second input field), add 'org.mimacom.maven.plugins:mimacom-liferay-builder-maven-plugin:updateResources'</li>
+						<li>Add the following resource definition to the pom.xml:
+							<pre>
+&lt;build&gt;
+  &lt;resources&gt;
+    &lt;resource&gt;
+      &lt;directory&gt;src/main/webapp&lt;/directory&gt;
+        &lt;excludes&gt;
+          &lt;exclude&gt;**/*&lt;/exclude&gt;
+        &lt;/excludes&gt;
+    &lt;/resource&gt;
+    ...						
+							</pre>
+						</li>
+						<li>Execute Maven->Update Project Configuration on the portlet project</li>
+					</ul>
+				</p>
+			</answer>
+		</faq>
+	</part>
+</faqs>

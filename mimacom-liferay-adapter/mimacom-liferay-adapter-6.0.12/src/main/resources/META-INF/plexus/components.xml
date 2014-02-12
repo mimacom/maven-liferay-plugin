@@ -1,0 +1,11 @@
+<component-set>
+	<components>
+		<component>
+			<role>org.mimacom.commons.liferay.adapter.LiferayTools</role>
+			<implementation>
+				org.mimacom.commons.liferay.adapter6012.LiferayToolsImpl
+			</implementation>
+			<configuration />
+		</component>
+	</components>
+</component-set>

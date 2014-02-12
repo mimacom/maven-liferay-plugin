@@ -1,0 +1,45 @@
+Portlet
+
+	To build a portlet, use the following configuration.
+	
+* Configuration
+
+	Using this parent {{{./example/pom.xml}pom.xml}}
+	
+---
+<project>
+    <parent>
+        <groupId>group</groupId>
+        <artifactId>parent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    ...
+    <packaging>liferayPortlet</packaging>
+    ... 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.mimacom.maven.plugins</groupId>
+                <artifactId>mimacom-liferay-builder-maven-plugin</artifactId>
+                <configuration>
+                    <type>portlet</type>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+---
+
+	This creates a portlet packaged as war file. 
+	
+	If the <localCopy> configuration is true, it is automatically deployed to the local server.
+
+* Directory layout
+  
+---
+    +- src/
+       +- main/
+          +- java/          // default java src directory
+          +- resources/     // default resources directory
+          +- webapp/        // web content directory
+---

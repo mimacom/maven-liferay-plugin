@@ -1,0 +1,129 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>demo-portal</artifactId>
+	<packaging>liferayPortal</packaging>
+	<parent>
+		<artifactId>mimacom-liferay-maven-example-project</artifactId>
+		<groupId>org.mimacom</groupId>
+		<version>0.0.2-SNAPSHOT</version>
+		<relativePath>..</relativePath>
+	</parent>
+	
+
+	<build>
+		<finalName>ROOT</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.mimacom.maven.plugins</groupId>
+				<artifactId>mimacom-liferay-builder-maven-plugin</artifactId>
+				<configuration>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+    
+	<dependencies>
+		<dependency>
+			<groupId>com.liferay.portal</groupId>
+			<artifactId>portal-impl</artifactId>
+			<version>${liferay-version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.liferay.portal</groupId>
+			<artifactId>portal-service</artifactId>
+			<version>${liferay-version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.liferay.portal</groupId>
+			<artifactId>util-java</artifactId>
+			<version>${liferay-version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.liferay.portal.dependency</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>${liferay-version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.liferay.portal.dependency</groupId>
+			<artifactId>struts</artifactId>
+			<version>${liferay-version}</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<!-- portlet-api.jar -->
+		<dependency>
+			<groupId>javax.portlet</groupId>
+			<artifactId>portlet-api</artifactId>
+			<scope>provided</scope>
+			<version>2.0</version>
+		</dependency>
+
+		<!-- jta.jar -->
+		<dependency>
+			<groupId>javax.transaction</groupId>
+			<artifactId>jta</artifactId>
+			<scope>provided</scope>
+			<version>1.1</version>
+		</dependency>
+
+		<!-- mail.jar -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<scope>provided</scope>
+			<version>1.4.1</version>
+		</dependency>
+
+		<!-- jutf7.jar -->
+<!--		<dependency>
+			<groupId>com.beetstra.jutf7</groupId>
+			<artifactId>jutf7</artifactId>
+			<version>1.0.0</version>
+			<scope>provided</scope>
+		</dependency>-->
+
+		<!-- jms.jar -->
+<!--		<dependency>
+			<groupId>javax.jms</groupId>
+			<artifactId>jms</artifactId>
+			<version>1.1</version>
+			<scope>provided</scope>
+		</dependency>-->
+
+		<!-- jtds.jar -->
+		<dependency>
+			<groupId>net.sourceforge.jtds</groupId>
+			<artifactId>jtds</artifactId>
+			<version>1.2.4</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- persistence.jar -->
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>javax.persistence</artifactId>
+			<version>2.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.2</version>
+			<scope>provided</scope>
+		</dependency>
+
+	</dependencies>
+</project>

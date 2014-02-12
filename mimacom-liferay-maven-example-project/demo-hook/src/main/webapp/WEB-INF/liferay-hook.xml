@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hook PUBLIC "-//Liferay//DTD Hook 6.0.0//EN" "http://www.liferay.com/dtd/liferay-hook_6_0_0.dtd">
+
+<hook>
+	<!-- Portal properties -->
+	<portal-properties>portal.properties</portal-properties>
+	<!-- Language properties -->
+	<language-properties>/content/Language_en_US.properties</language-properties>
+	<!-- Overriding JSPs -->
+	<custom-jsp-dir>/WEB-INF/classes/jsps</custom-jsp-dir>
+	<!-- Overriding services -->		
+	<service>
+		<service-type>com.liferay.portal.service.UserLocalService</service-type>
+		<service-impl>org.mimacom.liferay.demo.service.UserLocalServiceImpl</service-impl>
+	</service>
+    <service>
+		<service-type>com.liferay.portal.service.UserService</service-type>
+		<service-impl>org.mimacom.liferay.demo.service.UserServiceImpl</service-impl>
+	</service>
+
+	<!-- Adding servlet filters -->
+
+	<servlet-filter>
+		<servlet-filter-name>DemoServletFilter</servlet-filter-name>
+		<servlet-filter-impl>org.mimacom.liferay.demo.servlet.filters.DemoServletFilter</servlet-filter-impl>
+	</servlet-filter>
+	<servlet-filter-mapping>
+		<servlet-filter-name>DemoServletFilter</servlet-filter-name>
+		<url-pattern>/*</url-pattern>
+	</servlet-filter-mapping>
+
+	<!-- Overriding Struts actions -->
+	<struts-action>
+		<struts-action-path>/message_boards/view</struts-action-path>
+		<struts-action-impl>org.mimacom.liferay.demo.struts.MessageBoardViewAction</struts-action-impl>
+	</struts-action>
+    <struts-action>
+		<struts-action-path>/blogs/edit_entry</struts-action-path>
+		<struts-action-impl>org.mimacom.liferay.demo.struts.BlogArticleAddAction</struts-action-impl>
+	</struts-action>
+    <struts-action>
+		<struts-action-path>/blogs_admin/edit_entry</struts-action-path>
+		<struts-action-impl>org.mimacom.liferay.demo.struts.BlogArticleAddAction</struts-action-impl>
+	</struts-action>
+</hook>
+
+
+

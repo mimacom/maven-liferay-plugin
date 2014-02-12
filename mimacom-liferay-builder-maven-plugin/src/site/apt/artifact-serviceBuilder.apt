@@ -1,0 +1,46 @@
+Service Builder
+
+	To build a liferay service, use the following configuration.
+	
+* Configuration
+
+	Using this parent {{{./example/pom.xml}pom.xml}}
+
+---
+<project>
+    <parent>
+        <groupId>group</groupId>
+        <artifactId>parent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    ...
+    <packaging>liferayService</packaging>
+    ... 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.mimacom.maven.plugins</groupId>
+                <artifactId>mimacom-liferay-builder-maven-plugin</artifactId>
+                <configuration>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+---
+
+	This creates a liferay service packaged as war file. 
+	
+	If the <localCopy> configuration is true, it is automatically deployed to the local server.
+
+* Directory layout
+  
+---
+    +- src/
+       +- main/
+          +- java/          // service implementation src directory
+          +- resources/     // default resources directory
+          +- webapp/        // service web content directory
+    +- target/
+       +- generated-sources // generated java api directory
+---

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/DECORATION/1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/DECORATION/1.0.0 http://maven.apache.org/xsd/decoration-1.0.0.xsd">
+	<publishDate position="right"/>
+	<version position="right"/>
+	<body>
+		<menu name="Overview">
+			<item name="Introduction" href="intro.html" />
+			<item name="Goals" ref="plugin-info" />
+			<item name="Usage" href="usage.html" />
+			<item name="FAQ" href="faq.html" />
+		</menu>
+		<menu name="Liferay Artifacts">
+			<item name="Portal" href="artifact-portal.html" />
+			<item name="Portlet" href="artifact-portlet.html" />
+			<item name="Layout" href="artifact-layout.html" />
+			<item name="Theme" href="artifact-theme.html" />
+			<item name="Hook" href="artifact-hook.html" />
+			<item name="Service Builder" href="artifact-serviceBuilder.html" />
+		</menu>
+		<menu ref="reports" />
+	</body>
+</project>
