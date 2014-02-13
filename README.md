@@ -20,12 +20,16 @@ You can build all Liferay Portal artifacts:
 # Getting started
 Please follow these steps to setup your development environment:
 
-1. mvn install mimacom-liferay-dependency-maven-plugin and follow it's documentation (README and maven site)
+1. mvn install [mimacom-liferay-dependency-maven-plugin](https://github.com/mimacom/maven-liferay-plugin/tree/master/mimacom-liferay-dependency-maven-plugin) and follow it's documentation (README and maven site)
 
-2. mvn install mimacom-liferay-adapter-api
+2. mvn install [mimacom-liferay-adapter-api](https://github.com/mimacom/maven-liferay-plugin/tree/master/mimacom-liferay-adapter-api)
 
-3. mvn install mimacom-liferay-adapter; if needed create/uncomment adapter related to Liferay Portal version that you've installed in step 1
+3. mvn install [mimacom-liferay-adapter](https://github.com/mimacom/maven-liferay-plugin/tree/master/mimacom-liferay-adapter); if needed create/uncomment adapter related to Liferay Portal version that you've installed in step 1
 
-4. mvn install mimacom-liferay-builder-maven-plugin and follow it's documentation (README and maven site)
+4. mvn install [mimacom-liferay-builder-maven-plugin](https://github.com/mimacom/maven-liferay-plugin/tree/master/mimacom-liferay-builder-maven-plugin) and follow it's documentation (README and maven site)
 
+# Requirements / Limitations
+Our liferay maven plugins don't work with maven version 3.1 and later.
+
+# License
 The code is licensed with Apache License 2.0.
